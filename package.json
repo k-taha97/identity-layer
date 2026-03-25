@@ -1,5 +1,5 @@
 {
-  "name": "@my-nuxt/identity-layer",
+  "name": "identity-layer",
   "type": "module",
   "version": "0.0.2",
   "private": true,
