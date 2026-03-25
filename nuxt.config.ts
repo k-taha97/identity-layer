@@ -1,14 +1,10 @@
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { defineNuxtConfig } from 'nuxt/config';
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineNuxtConfig } from 'nuxt/config'
 
-const currentDir = dirname(fileURLToPath(import.meta.url));
+const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
-  extends: [
-    // 'github:company-org/c-layer-api',
-  ],
-
   runtimeConfig: {
     public: {
       identity: {
@@ -33,14 +29,14 @@ export default defineNuxtConfig({
   ],
 
   alias: {
-    '@auth': currentDir,
+    '@identity': currentDir,
   },
 
   imports: {
     dirs: [
-      join(currentDir, 'types/**'),
-      join(currentDir, 'composables/**'),
-      join(currentDir, 'utils/**'),
+      join(currentDir, 'types'),
+      join(currentDir, 'composables'),
+      join(currentDir, 'utils'),
     ],
   },
 
@@ -52,4 +48,4 @@ export default defineNuxtConfig({
     ],
     strategy: 'no_prefix',
   },
-});
+})
