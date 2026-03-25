@@ -24,9 +24,9 @@ export default defineNuxtConfig({
     join(currentDir, './assets/scss/index.scss'),
   ],
 
-  modules: [
-    '@nuxtjs/i18n',
-  ],
+  // modules: [
+  //   '@nuxtjs/i18n',
+  // ],
 
   alias: {
     '@identity': currentDir,
