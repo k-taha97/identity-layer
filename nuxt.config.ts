@@ -8,14 +8,14 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       identity: {
-        authority: '',
-        clientId: '',
-        responseType: '',
-        scope: '',
-        redirectUri: '',
-        postLogoutRedirectUri: '',
-        silentRedirectUri: '',
-        automaticSilentRenew: false,
+        authority: 'https://identity.sandbox.doublewallet.io',
+        clientId: 'local-backoffice-web',
+        responseType: 'code',
+        scope: 'openid profile roles email accountancy_api membership_api notification_api webhook_api whitelabel_api kyc_api card_api offline_access',
+        redirectUri: 'http://localhost:3000/callback',
+        postLogoutRedirectUri: 'http://localhost:3000/silent-renew',
+        silentRedirectUri: 'http://localhost:3000/callback',
+        automaticSilentRenew: true,
       },
     },
   },
