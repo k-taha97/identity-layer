@@ -5,6 +5,11 @@ import { UserManager } from 'oidc-client-ts'
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
+  if (!config.public?.identity) {
+    console.warn('[Auth Plugin] Identity config not found')
+    return
+  }
+
   const userManagerSettings = config.public.identity.settings as UserManagerSettings
   userManagerSettings.automaticSilentRenew = (String(config.public.identity.config.automaticSilentRenew).toLowerCase() === 'true')
 
