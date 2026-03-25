@@ -8,14 +8,14 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       identity: {
-        authority: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_AUTHORITY,
-        clientId: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_CLIENT_ID,
-        responseType: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_RESPONSE_TYPE,
-        scope: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_SCOPE,
-        redirectUri: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_REDIRECT_URI,
-        postLogoutRedirectUri: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_POST_LOGOUT_REDIRECT_URI,
-        silentRedirectUri: process?.env?.NUXT_PUBLIC_IDENTITY_SETTINGS_SILENT_REDIRECT_URI,
-        automaticSilentRenew: process?.env?.NUXT_PUBLIC_IDENTITY_SETTINGS_AUTOMATIC_SILENT_RENEW === 'true' || false,
+        authority: '',
+        clientId: '',
+        responseType: '',
+        scope: '',
+        redirectUri: '',
+        postLogoutRedirectUri: '',
+        silentRedirectUri: '',
+        automaticSilentRenew: false,
       },
     },
   },
