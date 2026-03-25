@@ -1,0 +1,21 @@
+:root[class='dark'] {
+  --bg-card-welcome-background: #18181b;
+  --btn-welcome-background: #4ade80;
+  --btn-welcome-color: #ffffff;
+}
+
+:root[class='light'] {
+  --bg-card-welcome-background: #ffffff;
+  --btn-welcome-background: #4ade80;
+  --btn-welcome-color: #ffffff;
+}
+
+.bg-card-welcome {
+  background-color: var(--bg-card-welcome-background);
+}
+
+.btn-welcome {
+  background-color: var(--btn-welcome-background);
+  border: 1px solid var(--btn-welcome-background);
+  color: var(--btn-welcome-color);
+}
