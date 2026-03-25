@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         redirectUri: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_REDIRECT_URI,
         postLogoutRedirectUri: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_POST_LOGOUT_REDIRECT_URI,
         silentRedirectUri: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_SILENT_REDIRECT_URI,
-        automaticSilentRenew: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_AUTOMATIC_SILENT_RENEW === 'true',
+        automaticSilentRenew: process.env.NUXT_PUBLIC_IDENTITY_SETTINGS_AUTOMATIC_SILENT_RENEW === 'true' || false,
       },
     },
   },
