@@ -20,8 +20,5 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>Silent Renew</h1>
-    <p>Processing silent renew...</p>
-  </div>
+  <div />
 </template>

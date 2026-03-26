@@ -6,11 +6,16 @@ definePageMeta({
   authorize: false,
 })
 
-const { $identity } = useNuxtApp()
+const nuxtApp = useNuxtApp()
 
 onMounted(() => {
-  $identity.manager.signinRedirectCallback().then((user) => {
-    $identity.manager.storeUser(user)
+  if (!nuxtApp.$identity) {
+    console.error('[Callback] $identity not available')
+    return
+  }
+
+  nuxtApp.$identity.manager.signinRedirectCallback().then((user) => {
+    nuxtApp.$identity.manager.storeUser(user)
     router.push('/')
   }).catch((e) => {
     console.error(e)

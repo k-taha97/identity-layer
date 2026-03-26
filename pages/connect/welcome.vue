@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { $identity } = useNuxtApp()
+const nuxtApp = useNuxtApp()
 
 definePageMeta({
   layout: false,
@@ -8,23 +8,29 @@ definePageMeta({
 
 const { t } = useI18n()
 
-const colorMode = useColorMode()
-const colorModeListener = computed(() => {
-  if (colorMode.value === 'system') {
-    if (window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      return 'dark'
-    else
-      return 'light'
-  }
-  return colorMode.value
-})
+// const colorMode = useColorMode()
+// const colorModeListener = computed(() => {
+//   if (colorMode.value === 'system') {
+//     if (window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+//       return 'dark'
+//     else
+//       return 'light'
+//   }
+//   return colorMode.value
+// })
 
 onMounted(() => {
-  $identity.manager.signoutCallback()
+  if (nuxtApp.$identity) {
+    nuxtApp.$identity.manager.signoutCallback()
+  }
 })
 
 function login() {
-  return $identity.manager.signinRedirect()
+  if (!nuxtApp.$identity) {
+    console.error('[Welcome] $identity not available')
+    return
+  }
+  return nuxtApp.$identity.manager.signinRedirect()
 }
 </script>
 
@@ -32,10 +38,10 @@ function login() {
   <ClientOnly>
     <div class="container-welcome">
       <div class="container-img">
-        <img v-if="colorModeListener === 'dark'" class="img-welcome" src="/images/login-dark.svg" alt="welcome">
-        <img v-else class="img-welcome" src="/images/login-light.svg" alt="login light">
-        <img v-if="colorModeListener === 'dark'" src="/images/bg-shape-image-dark.png" alt="BgDark" class="img-shape">
-        <img v-else src="/images/bg-shape-image-light.png" alt="BgDark" class="img-shape">
+        <!-- <img v-if="colorModeListener === 'dark'" class="img-welcome" src="/images/login-dark.svg" alt="welcome"> -->
+        <img class="img-welcome" src="/images/login-light.svg" alt="login light">
+        <!-- <img v-if="colorModeListener === 'dark'" src="/images/bg-shape-image-dark.png" alt="BgDark" class="img-shape"> -->
+        <img src="/images/bg-shape-image-light.png" alt="BgDark" class="img-shape">
       </div>
       <div class="container-form bg-card-welcome">
         <div>
